@@ -1,0 +1,28 @@
+<ion-header translucent>
+  <ion-toolbar>
+    <ion-title>Dine Oppskrifter</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+
+  <ion-list>
+    <ion-item *ngFor="let recipe of recipes">
+      <ion-avatar slot="start">
+        <img *ngIf="recipe.imageUrl" src={{recipe.imageUrl}}>
+      </ion-avatar>
+      <ion-label>
+        <h2>{{recipe.name}}</h2>
+        <h3 *ngIf="recipe.cookingTime">{{recipe.cookingTime}} minutter</h3>
+        <p>{{recipe.description}}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="openModal()">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>
